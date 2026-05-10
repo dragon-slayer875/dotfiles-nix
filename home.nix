@@ -30,16 +30,16 @@
         source = "${pkgs.bibata-cursors}/share/icons/Bibata-Modern-Classic";
       };
       ".config/nvim" = {
-        source = ./nvim;
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles-nix/dotfiles/nvim/.config/nvim";
       };
       ".config/kitty" = {
-        source = ./kitty;
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles-nix/dotfiles/kitty/.config/kitty";
       };
       ".gitconfig" = {
-        source = ./git/.gitconfig;
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles-nix/dotfiles/git/.gitconfig";
       };
       ".zsh/.zshrc.manual" = {
-        source = ./zsh/.zshrc;
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles-nix/dotfiles/zsh/.zshrc";
       };
     };
 
