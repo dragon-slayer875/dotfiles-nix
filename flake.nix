@@ -29,9 +29,11 @@
         main-comp =
           let
             username = "rudraksht";
+            description = "Rudraksh Tyagi";
             specialArgs = {
               inherit username;
               inherit inputs;
+              inherit description;
             };
           in
           nixpkgs.lib.nixosSystem {

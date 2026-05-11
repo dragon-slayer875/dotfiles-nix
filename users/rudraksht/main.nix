@@ -6,6 +6,7 @@
     ../../home/programs
     ../../home/services
     ../../home/display
+    ../../home/hyprland
   ];
 
   home.file = {
@@ -27,7 +28,6 @@
   };
 
   home.packages = with pkgs; [
-    kitty
     neofetch
     lazygit
     gh
@@ -37,11 +37,8 @@
     rustc
 
     xclip
-    wl-clipboard
     cliphist
   ];
-
-  xdg.autostart.enable = true;
 
   # home.shellAliases = {
   #   k = "kubectl";
@@ -51,7 +48,6 @@
   home.sessionVariables = {
     # set default applications
     BROWSER = "zen-beta";
-    TERMINAL = "kitty";
   };
 
   programs = {

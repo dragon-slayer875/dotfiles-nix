@@ -11,6 +11,7 @@ in
 {
   imports = [
     ../../modules/system.nix
+    ../../modules/wayland.nix
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -53,7 +54,15 @@ in
   qt.enable = true;
 
   services = {
+    displayManager.sddm = {
+      enable = true;
+
+      # Enables experimental Wayland support
+      wayland.enable = true;
+    };
+
     # Enable the X11 windowing system.
+
     xserver = {
       enable = true;
       # Configure keymap in X11
@@ -66,15 +75,15 @@ in
         "nvidia"
       ];
 
-      displayManager.lightdm = {
-        enable = true;
-        greeters.slick = {
-          enable = true;
-          cursorTheme = {
-            name = "Bibata-Modern-Classic";
-          };
-        };
-      };
+      # displayManager.lightdm = {
+      #   enable = true;
+      #   greeters.slick = {
+      #     enable = true;
+      #     cursorTheme = {
+      #       name = "Bibata-Modern-Classic";
+      #     };
+      #   };
+      # };
 
       # Enable the XFCE Desktop Environment.
       desktopManager.xfce.enable = true;
