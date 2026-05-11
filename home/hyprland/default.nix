@@ -11,14 +11,9 @@
         # "HDMI-1,1920x1080,auto-right,1.25,"
       ];
 
-      # exec-once = [
-      #   "/usr/lib/xdg-desktop-portal-hyprland"
-      #   "waybar &"
-      #   "swww-daemon --format xrgb"
-      #   "swaync &"
-      #   "swayosd &"
-      #   "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-      # ];
+      exec-once = [
+        "noctalia-shell"
+      ];
 
       # env = [
       #   "XCURSOR_THEME,Vimix-cursors"
@@ -27,8 +22,8 @@
       # ];
 
       general = {
-        gaps_in = 3;
-        gaps_out = 3;
+        gaps_in = 5;
+        gaps_out = 5;
         # border_size = 2;
         # "col.active_border" = "rgb(b4befe) rgb(f5c2e7) 45deg";
         # "col.inactive_border" = "rgb(585b70)";
@@ -44,22 +39,23 @@
       # };
       #
       decoration = {
-        rounding = 8;
+        rounding = 20;
+        rounding_power = 2;
         # active_opacity = 1.0;
         # inactive_opacity = 0.95;
-        # shadow = {
-        #   enabled = true;
-        #   range = 4;
-        #   render_power = 3;
-        #   # color = "0xee1a1a1a";
-        # };
-        # blur = {
-        #   enabled = true;
-        #   size = 2;
-        #   passes = 3;
-        #   popups = false;
-        #   vibrancy = 0.85;
-        # };
+        shadow = {
+          enabled = true;
+          range = 4;
+          render_power = 3;
+          color = "rgba(1a1a1aee)";
+        };
+        blur = {
+          enabled = true;
+          size = 3;
+          passes = 2;
+          # popups = false;
+          vibrancy = 0.1696;
+        };
       };
       #
       # dwindle = {
@@ -93,22 +89,25 @@
       "$browser" = "zen-beta";
       "$terminal" = "kitty";
       "$fileManager" = "thunar";
+      "$noc_ipc" = "noctalia-shell ipc call";
+      "$screenshot" = "xfce4-screenshooter";
+      "$screenshot_dir" = "~/Pictures/Screenshots";
       # "$menu" = "rofi -show drun";
 
       bind = [
+        "$mainMod, , exec, $terminal"
         "$mainMod, return, exec, $terminal"
         "$mainMod, F, exec, $fileManager"
-        # "$mainMod, R , exec , ~/.config/scripts/zellij.sh"
-        # "$mainMod, T , exec , pkill waybar ; waybar &"
+        "CTRL ALT, l, exec, $noc_ipc lockScreen lock"
+        "$mainMod, R , exec , $noc_ipc launcher toggle"
         "$mainMod, B, exec, $browser"
         "$mainMod, C, killactive,"
         "$mainMod SHIFT , Q , exit,"
         "$mainMod, Y, togglefloating,"
-        # "$mainMod, X, exec , ~/.config/rofi/powermenu/powermenu.sh"
+        "$mainMod, X, exec , $noc_ipc sessionMenu toggle"
         "$mainMod, P, pseudo,"
         "$mainMod, SPACE, togglesplit,"
         "$mainMod, Z , fullscreen"
-        # "$mainMod , O , exec, $menu"
 
         # Focus and Movement
         "$mainMod, h, movefocus, l"
@@ -161,8 +160,8 @@
         "$mainMod, Q , workspace, e+1"
         "$mainMod, E, workspace, e-1"
 
-        # ",Print, exec, grim ~/Pictures/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png && notify-send 'Screenshot Captured' 'Saved to ~/Pictures'"
-        # "Shift,Print, exec, grim -g \"$(slurp)\" ~/Pictures/screenshot_area_$(date +%Y-%m-%d_%H-%M-%S).png && notify-send 'Screenshot Captured' 'Area screenshot saved to ~/Pictures'"
+        ", Print, exec, $screenshot"
+        "Shift, Print, exec, $screenshot -r "
       ];
       #
       bindm = [
@@ -170,25 +169,22 @@
         "$mainMod, mouse:273, resizewindow"
       ];
 
-      # bindel = [
-      #   ",XF86AudioRaiseVolume, exec, swayosd --output-volume raise"
-      #   ",XF86AudioLowerVolume, exec, swayosd --output-volume lower"
-      #   ",XF86AudioMute, exec, swayosd --output-volume mute-toggle"
-      #   ",XF86AudioMicMute, exec, swayosd --input-volume mute-toggle"
-      #   ",XF86MonBrightnessUp, exec, swayosd --brightness raise"
-      #   ",XF86MonBrightnessDown, exec, swayosd --brightness lower"
-      # ];
-      #
-      # bindr = [
-      #   ",Caps_Lock, exec, swayosd --caps-lock"
-      # ];
-
-      bindl = [
+      bindel = [
+        ",XF86AudioRaiseVolume, exec, $noc_ipc volume increase"
+        ",XF86AudioLowerVolume, exec, $noc_ipc volume decrease"
+        ",XF86AudioMute, exec, $noc_ipc volume muteOutput"
+        ",XF86AudioMicMute, exec, $noc_ipc volume muteInput"
+        ",XF86MonBrightnessUp, exec, $noc_ipc brightness increase"
+        ",XF86MonBrightnessDown, exec, $noc_ipc brightness decrease"
         ", XF86AudioNext, exec, playerctl next"
         ", XF86AudioPause, exec, playerctl play-pause"
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
       ];
+      #
+      # bindr = [
+      #   ",Caps_Lock, exec, swayosd --caps-lock"
+      # ];
 
       # windowrulev2 = [
       #   "workspace 1, class:^(kitty)$"
@@ -198,19 +194,22 @@
       #   "workspace 5, class:^(Spotify)$"
       # ];
 
-      # layerrule = [
-      #   "ignorealpha 0.5, waybar"
-      #   "blur, swaync-control-center"
-      #   "ignorealpha 0.5, swaync-control-center"
-      #   "animation slide right, swaync-control-center"
-      #   "blur, swaync-notification-window"
-      #   "ignorealpha 0.5, swaync-notification-window"
-      #   "animation slide right, swaync-notification-window"
-      #   "blur, rofi"
-      #   "ignorealpha 0.2, rofi"
-      #   "dimaround, rofi"
-      #   "animation slide top, rofi"
-      # ];
+      layerrule = [
+        "ignorealpha 0.5, match:namespace noctalia-background-.*$"
+        "blur, match:namespace noctalia-background-.*$"
+        "blurpopups, match:namespace noctalia-background-.*$"
+        # "ignorealpha 0.5, waybar"
+        # "blur, swaync-control-center"
+        # "ignorealpha 0.5, swaync-control-center"
+        # "animation slide right, swaync-control-center"
+        # "blur, swaync-notification-window"
+        # "ignorealpha 0.5, swaync-notification-window"
+        # "animation slide right, swaync-notification-window"
+        # "blur, rofi"
+        # "ignorealpha 0.2, rofi"
+        # "dimaround, rofi"
+        # "animation slide top, rofi"
+      ];
 
       animations = {
         enabled = true;

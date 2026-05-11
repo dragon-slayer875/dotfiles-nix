@@ -15,6 +15,12 @@
         home-manager.follows = "home-manager";
       };
     };
+    # If any weird errors surface, try disabling this since nnoctalia internally uses unstable channel
+    # and we're not following it here
+    # Also be on lookout for noctalia stable channel update
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+    };
   };
 
   outputs =

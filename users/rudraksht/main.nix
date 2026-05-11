@@ -7,6 +7,7 @@
     ../../home/services
     ../../home/display
     ../../home/hyprland
+    ../../home/noctalia
   ];
 
   home.file = {
