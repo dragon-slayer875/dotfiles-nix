@@ -1,11 +1,6 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 {
   lib,
   config,
-  pkgs,
   ...
 }:
 let
@@ -15,6 +10,8 @@ in
 
 {
   imports = [
+    ../../modules/system.nix
+
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
@@ -26,35 +23,15 @@ in
   };
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
   networking.hostName = "main-comp"; # Define your hostname.
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "Asia/Kolkata";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_IN";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_IN";
-    LC_IDENTIFICATION = "en_IN";
-    LC_MEASUREMENT = "en_IN";
-    LC_MONETARY = "en_IN";
-    LC_NAME = "en_IN";
-    LC_NUMERIC = "en_IN";
-    LC_PAPER = "en_IN";
-    LC_TELEPHONE = "en_IN";
-    LC_TIME = "en_IN";
-  };
-
   # Enable hardware
   hardware = {
-    cpu.amd.updateMicrocode = config.hardware.enableRedistributableFirmware;
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -105,6 +82,7 @@ in
 
     printing.enable = true;
     blueman.enable = true;
+    # Useful for SSDs as helps maintain performance by discarding unused blocks
     fstrim.enable = true;
 
     # Enable sound with pipewire.
@@ -125,52 +103,8 @@ in
 
   security.rtkit.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.rudraksht = {
-    isNormalUser = true;
-    description = "Rudraksh Tyagi";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-    shell = pkgs.zsh;
-  };
-
-  # Install zsh
   programs = {
-    zsh.enable = true;
     steam.enable = true;
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
-  environment.systemPackages = with pkgs; [
-    git
-    neovim
-    curl
-    tmux
-    wget
-    vim
-  ];
-
-  # environment variables
-  environment.variables.EDITOR = "nvim";
-
-  fonts = {
-    fontconfig.enable = true;
-    packages = with pkgs; [
-      noto-fonts-color-emoji
-      nerd-fonts.caskaydia-cove
-    ];
-
   };
 
   # Open ports in the firewall.
@@ -186,5 +120,4 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
-
 }

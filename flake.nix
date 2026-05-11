@@ -15,10 +15,6 @@
         home-manager.follows = "home-manager";
       };
     };
-    silentSDDM = {
-      url = "github:uiriansan/SilentSDDM";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -33,11 +29,15 @@
         main-comp =
           let
             username = "rudraksht";
+            specialArgs = {
+              inherit username;
+              inherit inputs;
+            };
           in
           nixpkgs.lib.nixosSystem {
-            specialArgs = { inherit inputs; };
+            inherit specialArgs;
             modules = [
-              ./configuration.nix
+              ./hosts/main-comp
 
               # make home-manager as a module of nixos
               # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
@@ -46,11 +46,8 @@
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
-                home-manager.extraSpecialArgs = {
-                  inherit inputs;
-                  inherit username;
-                };
-                home-manager.users.${username} = import ./home.nix;
+                home-manager.extraSpecialArgs = specialArgs;
+                home-manager.users.${username} = import ./users/${username}/main.nix;
               }
             ];
           };
