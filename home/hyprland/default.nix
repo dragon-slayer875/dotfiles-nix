@@ -75,7 +75,7 @@
         touchpad = {
           natural_scroll = true;
           # Remember this in case games don't work correctly
-          disable_while_typing = true;
+          disable_while_typing = false;
         };
       };
 
@@ -84,27 +84,22 @@
       ];
 
       "$mainMod" = "SUPER";
-      # "$brightness" = "~/.config/scripts/brightness.sh";
-      # "$volume" = "~/.config/scripts/volume.sh";
       "$browser" = "zen-beta";
       "$terminal" = "kitty";
       "$fileManager" = "thunar";
       "$noc_ipc" = "noctalia-shell ipc call";
       "$screenshot" = "flameshot";
-      # "$screenshot_dir" = "~/Pictures/Screenshots";
-      # "$menu" = "rofi -show drun";
 
       bind = [
-        "$mainMod, , exec, $terminal"
         "$mainMod, return, exec, $terminal"
         "$mainMod, F, exec, $fileManager"
         "CTRL ALT, l, exec, $noc_ipc lockScreen lock"
-        "$mainMod, R , exec , $noc_ipc launcher toggle"
         "$mainMod, B, exec, $browser"
         "$mainMod, C, killactive,"
         "$mainMod SHIFT , Q , exit,"
         "$mainMod, Y, togglefloating,"
         "$mainMod, X, exec , $noc_ipc sessionMenu toggle"
+        "$mainMod, SUPER_L, exec , $noc_ipc launcher toggle"
         "$mainMod, P, pseudo,"
         "$mainMod, SPACE, togglesplit,"
         "$mainMod, Z , fullscreen"
@@ -182,9 +177,9 @@
         ", XF86AudioPrev, exec, playerctl previous"
       ];
       #
-      # bindr = [
-      #   ",Caps_Lock, exec, swayosd --caps-lock"
-      # ];
+      bindr = [
+        "ALT, Tab, exec, $noc_ipc launcher windows"
+      ];
 
       # windowrulev2 = [
       #   "workspace 1, class:^(kitty)$"
