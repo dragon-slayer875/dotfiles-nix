@@ -68,6 +68,7 @@
   environment.systemPackages = with pkgs; [
     kitty
     wl-clipboard
+    flameshot
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 

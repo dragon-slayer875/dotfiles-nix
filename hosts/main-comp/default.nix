@@ -12,6 +12,7 @@ in
   imports = [
     ../../modules/system.nix
     ../../modules/wayland.nix
+    ../../modules/kanata.nix
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix

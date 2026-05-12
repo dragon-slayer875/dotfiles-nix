@@ -90,8 +90,8 @@
       "$terminal" = "kitty";
       "$fileManager" = "thunar";
       "$noc_ipc" = "noctalia-shell ipc call";
-      "$screenshot" = "xfce4-screenshooter";
-      "$screenshot_dir" = "~/Pictures/Screenshots";
+      "$screenshot" = "flameshot";
+      # "$screenshot_dir" = "~/Pictures/Screenshots";
       # "$menu" = "rofi -show drun";
 
       bind = [
@@ -160,8 +160,8 @@
         "$mainMod, Q , workspace, e+1"
         "$mainMod, E, workspace, e-1"
 
-        ", Print, exec, $screenshot"
-        "Shift, Print, exec, $screenshot -r "
+        ", Print, exec, $screenshot gui"
+        "Shift, Print, exec, $screenshot full"
       ];
       #
       bindm = [
