@@ -70,6 +70,7 @@
     wl-clipboard
     flameshot
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    libnotify
   ];
 
   environment.sessionVariables = {

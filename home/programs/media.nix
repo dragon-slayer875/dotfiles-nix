@@ -42,6 +42,14 @@
                         }
       '';
     };
+    mpd-mpris = {
+      enable = true;
+      mpd = {
+        useLocal = false;
+        network = "unix";
+        host = "/home/${username}/.local/share/mpd/socket";
+      };
+    };
     mpris-proxy.enable = true;
   };
 }
