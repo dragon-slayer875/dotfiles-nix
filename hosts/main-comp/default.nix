@@ -13,6 +13,7 @@ in
     ../../modules/system.nix
     ../../modules/wayland.nix
     ../../modules/kanata.nix
+    ../../modules/virt-manager.nix
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -56,7 +57,9 @@ in
 
   services = {
     logind = {
-      lidSwitch = "ignore";
+      settings.Login = {
+        HandleLidSwitch = "ignore";
+      };
     };
 
     displayManager.sddm = {

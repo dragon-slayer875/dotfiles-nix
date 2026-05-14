@@ -8,6 +8,7 @@
     ../../home/display
     ../../home/hyprland
     ../../home/noctalia
+    ../../home/virtualisation
   ];
 
   home.file = {
