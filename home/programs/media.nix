@@ -8,9 +8,12 @@
     obs-studio
     heroic
     stremio-linux-shell
+    qbittorrent
     playerctl
     nicotine-plus
     rmpc
+    vlc
+    wireguard-tools
   ];
 
   services = {
