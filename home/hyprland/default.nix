@@ -79,6 +79,10 @@
         };
       };
 
+      env = [
+        "QT_QPA_PLATFORMTHEME,qt6ct"
+      ];
+
       gesture = [
         "3, horizontal, workspace"
       ];
