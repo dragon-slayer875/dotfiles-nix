@@ -6,11 +6,6 @@
     "Xft.dpi" = 172;
   };
 
-  dconf = {
-    enable = true;
-    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-  };
-
   home.packages = with pkgs; [
     nwg-look
     qt6Packages.qt6ct
@@ -31,6 +26,11 @@
   gtk = {
     enable = true;
 
+    # necessary to correctly theme gnome apps by removing and setting files created by nwglook from .config/gtk-4.0
+    gtk4 = {
+      enable = false;
+    };
+
     # this theme is needed to use noctalia's color scheme in gtk apps
     theme = {
       name = "adw-gtk3-dark";
@@ -45,17 +45,11 @@
     };
   };
 
-  xdg.configFile = {
-    "gtk-4.0/assets" = {
-      source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-    };
-
-    "gtk-4.0/gtk.css" = {
-      source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-    };
-
-    "gtk-4.0/gtk-dark.css" = {
-      source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+  home.file = {
+    ".config/gtk-4.0/gtk.css" = {
+      text = ''
+        @import url("noctalia.css");
+        	'';
     };
   };
 }
