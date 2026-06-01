@@ -67,6 +67,7 @@ in
 
     displayManager.sddm = {
       enable = true;
+      theme = "chili";
 
       # Enables experimental Wayland support
       wayland.enable = true;
@@ -97,8 +98,11 @@ in
       # };
 
       # Enable the XFCE Desktop Environment.
-      desktopManager.xfce.enable = true;
+      # desktopManager.xfce.enable = true;
     };
+
+    gvfs.enable = true; # Mount, trash, and other functionalities
+    tumbler.enable = true; # Thumbnail support for images
 
     printing.enable = true;
     blueman.enable = true;
