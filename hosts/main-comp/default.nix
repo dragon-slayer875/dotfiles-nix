@@ -14,6 +14,7 @@ in
     ../../modules/wayland.nix
     ../../modules/kanata.nix
     ../../modules/virt-manager.nix
+    ../../modules/docker.nix
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
