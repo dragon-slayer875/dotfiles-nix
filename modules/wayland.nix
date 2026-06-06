@@ -22,7 +22,7 @@
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     libnotify
     sddm-chili-theme
-    nautilus
+    loupe
     totem
     # poppler
     icoextract
@@ -35,10 +35,7 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
-      # xdg-desktop-portal-gtk
-    ];
+    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
   };
 
   services = {
