@@ -84,6 +84,7 @@
     tmux
     wget
     vim
+    net-tools
   ];
 
   programs = {
