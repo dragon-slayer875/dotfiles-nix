@@ -7,7 +7,6 @@
   home.packages = with pkgs; [
     obs-studio
     heroic
-    stremio-linux-shell
     qbittorrent
     playerctl
     nicotine-plus
