@@ -52,6 +52,8 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
+
+    android-tools
   ];
 
 }
