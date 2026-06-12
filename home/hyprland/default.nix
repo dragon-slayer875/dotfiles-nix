@@ -32,6 +32,10 @@
         # layout = "dwindle";
       };
 
+      dwindle = {
+        preserve_split = true;
+      };
+
       # misc = {
       #   focus_on_activate = false;
       #   disable_splash_rendering = true;
@@ -105,7 +109,7 @@
         "$mainMod, X, exec , $noc_ipc sessionMenu toggle"
         "$mainMod, SUPER_L, exec , $noc_ipc launcher toggle"
         "$mainMod, P, pseudo,"
-        "$mainMod, SPACE, togglesplit,"
+        "$mainMod, SPACE, layoutmsg, togglesplit"
         "$mainMod, Z , fullscreen"
 
         # Focus and Movement
@@ -194,9 +198,9 @@
       # ];
 
       layerrule = [
-        "ignorealpha 0.5, match:namespace noctalia-background-.*$"
-        "blur, match:namespace noctalia-background-.*$"
-        "blurpopups, match:namespace noctalia-background-.*$"
+        "ignore_alpha 0.5, match:namespace noctalia-background-.*$"
+        "blur on, match:namespace noctalia-background-.*$"
+        "blur_popups on, match:namespace noctalia-background-.*$"
         # "ignorealpha 0.5, waybar"
         # "blur, swaync-control-center"
         # "ignorealpha 0.5, swaync-control-center"

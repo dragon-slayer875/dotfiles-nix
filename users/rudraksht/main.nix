@@ -30,7 +30,7 @@
   };
 
   home.packages = with pkgs; [
-    neofetch
+    fastfetch
     lazygit
     gh
 
