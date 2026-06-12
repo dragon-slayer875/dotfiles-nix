@@ -33,17 +33,10 @@
     TERMINAL = "kitty";
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
-  };
-
   services = {
     power-profiles-daemon.enable = true;
     upower.enable = true;
 
     dbus.enable = true;
   };
-
-  programs.dconf.enable = true;
 }
