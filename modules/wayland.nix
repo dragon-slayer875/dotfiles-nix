@@ -9,7 +9,7 @@
 
     thunar = {
       enable = true;
-      plugins = with pkgs.xfce; [
+      plugins = with pkgs; [
         thunar-archive-plugin # Requires an Archive manager like file-roller, ark, etc
       ];
     };
