@@ -55,6 +55,7 @@ in
     };
 
     bluetooth.enable = true;
+    opentabletdriver.enable = true;
   };
 
   qt.enable = true;
