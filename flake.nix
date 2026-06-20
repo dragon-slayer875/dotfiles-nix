@@ -21,7 +21,7 @@
     # and we're not following it here
     # Also be on lookout for noctalia stable channel update
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia/legacy-v4";
     };
   };
 
