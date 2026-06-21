@@ -36,7 +36,5 @@
   services = {
     power-profiles-daemon.enable = true;
     upower.enable = true;
-
-    dbus.enable = true;
   };
 }
