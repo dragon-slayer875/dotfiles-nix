@@ -36,6 +36,9 @@
     gcc
     cargo
     rustc
+	nil
+	statix
+	nixfmt
 
     xclip
     cliphist
