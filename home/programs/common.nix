@@ -53,7 +53,8 @@
     pciutils # lspci
     usbutils # lsusb
 
-    android-tools
+    fastfetch
+    wireguard-tools
   ];
 
 }

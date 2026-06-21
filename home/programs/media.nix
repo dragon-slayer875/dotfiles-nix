@@ -5,14 +5,11 @@
 }:
 {
   home.packages = with pkgs; [
-    obs-studio
     heroic
-    qbittorrent
     playerctl
     nicotine-plus
     rmpc
     vlc
-    wireguard-tools
   ];
 
   services = {

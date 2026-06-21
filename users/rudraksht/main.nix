@@ -5,7 +5,7 @@
 
     ../../home/programs
     ../../home/services
-    ../../home/display
+    ../../home/theming
     ../../home/hyprland
     ../../home/noctalia
     ../../home/virtualisation
@@ -30,7 +30,6 @@
   };
 
   home.packages = with pkgs; [
-    fastfetch
     lazygit
     gh
 
@@ -40,6 +39,7 @@
 
     xclip
     cliphist
+    android-tools
   ];
 
   # home.shellAliases = {
@@ -50,6 +50,7 @@
   home.sessionVariables = {
     # set default applications
     BROWSER = "zen-beta";
+    TERMINAL = "kitty";
   };
 
   programs = {
