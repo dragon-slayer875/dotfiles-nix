@@ -9,6 +9,7 @@
   home.packages = with pkgs; [
     nwg-look
     qt6Packages.qt6ct
+    libsForQt5.qt5ct
     (catppuccin-gtk.override {
       variant = "macchiato";
       accents = [
