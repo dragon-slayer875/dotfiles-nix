@@ -80,6 +80,7 @@
   environment.systemPackages = with pkgs; [
     git
     neovim
+    tree-sitter
     curl
     tmux
     wget
