@@ -8,6 +8,8 @@
     heroic
     playerctl
     nicotine-plus
+    picard
+    syncplay
     rmpc
     vlc
   ];
