@@ -6,7 +6,7 @@
       settings = {
         devices = {
           "main-phone" = {
-            id = "6IVRSMT-VNGQE7C-XK7L6DW-SFLWYNS-7CNX7BS-ERG2KON-3RYRSK4-7GYDQQ3";
+            id = "6PVZKOR-GFVSSEO-O3M5K6Z-D7BDXCZ-GIA4QEI-DVK3MGJ-B5VDD2Y-HYSNSA4";
           };
         };
         folders = {
