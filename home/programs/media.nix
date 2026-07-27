@@ -11,7 +11,7 @@
     picard
     syncplay
     rmpc
-    vlc
+    mpv
   ];
 
   services = {
