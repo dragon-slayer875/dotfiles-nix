@@ -6,5 +6,6 @@
     obs-studio
     qbittorrent
     xournalpp
+    rnote
   ];
 }
