@@ -6,5 +6,6 @@
     ./common.nix
     ./keepass.nix
     ./gui-utils.nix
+    ./dig-aud-prod.nix
   ];
 }
