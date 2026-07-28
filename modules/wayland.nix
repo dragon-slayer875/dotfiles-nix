@@ -27,6 +27,7 @@
     # poppler
     icoextract
     file-roller
+    pavucontrol
   ];
 
   environment.sessionVariables = {
