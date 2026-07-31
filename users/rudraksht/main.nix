@@ -4,7 +4,7 @@
     ../../home/core.nix
 
     ../../home/programs
-    ../../home/services
+    ../../home/data-and-backup
     ../../home/theming
     ../../home/hyprland
     ../../home/noctalia

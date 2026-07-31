@@ -33,6 +33,18 @@
               params.cleanoutDays = "7";
             };
           };
+
+          "Notes" = {
+            path = "/home/${username}/Documents/Notes";
+            devices = [
+              "main-phone"
+            ];
+            versioning = {
+              type = "simple";
+              params.keep = "5";
+              params.cleanoutDays = "7";
+            };
+          };
         };
       };
     };
