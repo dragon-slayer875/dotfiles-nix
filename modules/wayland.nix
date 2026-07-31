@@ -28,6 +28,8 @@
     icoextract
     file-roller
     pavucontrol
+    baobab
+    gnome-calculator
   ];
 
   environment.sessionVariables = {
