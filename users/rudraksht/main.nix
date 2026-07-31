@@ -71,7 +71,7 @@
       enable = true;
       clock24 = true;
       keyMode = "vi";
-      extraConfig = "mouse on";
+      extraConfig = "set -g mouse on";
     };
 
     ssh = {
@@ -121,12 +121,6 @@
       initContent = ''
         source ~/.zsh/.zshrc.manual
       '';
-    };
-
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-      enableZshIntegration = true;
     };
   };
 }
