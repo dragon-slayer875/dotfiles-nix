@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   # set cursor size and dpi for 4k monitor
   xresources.properties = {
@@ -52,5 +52,9 @@
         @import url("noctalia.css");
         	'';
     };
+  };
+
+  home.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "qt6ct";
   };
 }
