@@ -55,7 +55,8 @@
       enable = true;
       clock24 = true;
       keyMode = "vi";
-      extraConfig = "set -g mouse on";
+      mouse = true;
+      terminal = "screen-256color";
     };
 
     ssh = {
