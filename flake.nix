@@ -6,10 +6,12 @@
 
     # NixOS official package source, using the nixos-25.11 branch here
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
@@ -17,11 +19,17 @@
         home-manager.follows = "home-manager";
       };
     };
+
     # If any weird errors surface, try disabling this since nnoctalia internally uses unstable channel
     # and we're not following it here
     # Also be on lookout for noctalia stable channel update
     noctalia = {
       url = "github:noctalia-dev/noctalia/legacy-v4";
+    };
+
+    antigravity-nix = {
+      url = "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

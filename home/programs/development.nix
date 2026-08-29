@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
 
   home.packages = with pkgs; [
     lazygit
@@ -14,5 +14,13 @@
     xclip
     cliphist
     android-tools
+
+    inputs.antigravity-nix.packages.${pkgs.system}.default
+    inputs.antigravity-nix.packages.${pkgs.system}.google-antigravity-ide
+    inputs.antigravity-nix.packages.${pkgs.system}.google-antigravity-cli
+
+    opencode
+    codex
+    vscode
   ];
 }
