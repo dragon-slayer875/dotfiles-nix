@@ -28,8 +28,10 @@ in
 
   # Bootloader.
   boot.loader = {
-    systemd-boot = {
+    grub = {
       enable = true;
+      device = "nodev"; # "nodev" is used for UEFI
+      efiSupport = true;
       configurationLimit = 10;
     };
     efi.canTouchEfiVariables = true;
