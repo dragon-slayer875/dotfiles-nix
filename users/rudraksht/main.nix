@@ -83,16 +83,22 @@
 	  IdentitiesOnly yes
 	  User git
 
+	Host gitlab.postmarketos.org
+	  HostName gitlab.postmarketos.org
+	  IdentityFile ~/.ssh/pmgl_access
+	  IdentitiesOnly yes
+	  User git
+
 	Host myHome-server
 	  HostName 192.168.1.7
 	  IdentityFile ~/.ssh/server_access
-	  User rudr875
+	  User rudraksht
 	  Port 875
 
 	Host myHome-server-vlan
 	  HostName 10.0.0.1
 	  IdentityFile ~/.ssh/server_access
-	  User rudr875
+	  User rudraksht
 	  Port 875
 	";
     };
