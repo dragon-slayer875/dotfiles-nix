@@ -5,5 +5,6 @@
     qbittorrent
     xournalpp
     rnote
+    obsidian
   ];
 }
