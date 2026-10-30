@@ -31,6 +31,11 @@
       url = "github:jacopone/antigravity-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    freesmlauncher = {
+      url = "github:FreesmTeam/FreesmLauncher";
+    };
+
   };
 
   outputs =

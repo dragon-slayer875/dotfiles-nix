@@ -1,17 +1,20 @@
 {
   pkgs,
   username,
+  inputs,
   ...
 }:
 {
   home.packages = with pkgs; [
     heroic
+    mangohud
     playerctl
     nicotine-plus
     picard
     syncplay
     rmpc
     mpv
+    inputs.freesmlauncher.packages.${pkgs.system}.freesmlauncher
   ];
 
   services = {
