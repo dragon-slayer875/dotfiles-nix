@@ -1,21 +1,25 @@
 {
   pkgs,
+  pkgsUnstable,
   username,
   inputs,
   ...
 }:
 {
-  home.packages = with pkgs; [
-    heroic
-    mangohud
-    playerctl
-    nicotine-plus
-    picard
-    syncplay
-    rmpc
-    mpv
-    inputs.freesmlauncher.packages.${pkgs.system}.freesmlauncher
-  ];
+  home.packages =
+    with pkgs;
+    [
+      heroic
+      mangohud
+      playerctl
+      nicotine-plus
+      picard
+      syncplay
+      rmpc
+      mpv
+      inputs.freesmlauncher.packages.${pkgs.system}.freesmlauncher
+    ]
+    ++ [ pkgsUnstable.tetrio-desktop ];
 
   services = {
     playerctld.enable = true;

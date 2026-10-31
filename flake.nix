@@ -42,9 +42,13 @@
     {
       self,
       nixpkgs,
+      nixpkgs-unstable,
       home-manager,
       ...
     }@inputs:
+    let
+      system = "x86_64-linux";
+    in
     {
       nixosConfigurations = {
         main-comp =
@@ -55,6 +59,10 @@
               inherit username;
               inherit inputs;
               inherit description;
+              pkgsUnstable = import nixpkgs-unstable {
+                inherit system;
+                config.allowUnfree = true;
+              };
             };
           in
           nixpkgs.lib.nixosSystem {
