@@ -135,6 +135,10 @@ in
 
   programs = {
     steam.enable = true;
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
   };
 
   # Open ports in the firewall.
