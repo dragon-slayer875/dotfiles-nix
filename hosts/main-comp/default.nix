@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -51,8 +52,10 @@ in
       open = lib.mkOverride 990 (nvidiaPackage ? open && nvidiaPackage ? firmware);
       modesetting.enable = true;
       prime = {
-        amdgpuBusId = "PCI:6:0:0";
-        nvidiaBusId = "PCI:1:0:0";
+        offload.enable = true;
+        offload.enableOffloadCmd = true;
+        amdgpuBusId = "PCI:6@0:0:0";
+        nvidiaBusId = "PCI:1@0:0:0";
       };
     };
 
