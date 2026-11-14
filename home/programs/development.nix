@@ -29,7 +29,6 @@
 
       opencode
       codex
-      vscode
     ]
     ++ [ pkgsUnstable.pmbootstrap ];
 }
